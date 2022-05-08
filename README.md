@@ -1,4 +1,7 @@
-# atem_interview
+# 1. Create a flutter application to fetch calendar events from the device and display these events in SfCalendar.
+# 2.Create a simple product listing page using the dummy api given below. 
+References:
+https://fakestoreapi.com/
 
 A new Flutter project.
 
