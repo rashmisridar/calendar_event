@@ -12,4 +12,6 @@ class CoonstString {
   static String indianRupees = "\u20B9";
 
   static String calendarEvents = "Calendar Events";
+
+  static var wentWrong = "Some thing went wrong";
 }

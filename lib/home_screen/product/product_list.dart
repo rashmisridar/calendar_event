@@ -51,7 +51,7 @@ class ProductList extends StatelessWidget {
   Widget productBodyWidget(List<Product> productList) {
     return GridView.builder(
         shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: productList.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,

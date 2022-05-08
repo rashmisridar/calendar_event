@@ -9,4 +9,5 @@ class CoonstColor {
   static const black = Color(0xFF000000);
 
   static const red = Colors.redAccent;
+  static const green = Colors.green;
 }

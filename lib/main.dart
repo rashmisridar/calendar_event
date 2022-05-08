@@ -1,9 +1,11 @@
-import 'package:atem_interview/home_screen/calendarevent/calendar_event.dart';
+import 'package:atem_interview/home_screen/calendarevent/calendar_names.dart';
+import 'package:atem_interview/home_screen/calendarevent/event_provider.dart';
 import 'package:atem_interview/home_screen/home_page.dart';
 import 'package:atem_interview/home_screen/product/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'home_screen/calendarevent/calendar_event_provider.dart';
 import 'home_screen/product/product_provider.dart';
 
 void main() {
@@ -23,6 +25,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
+        ChangeNotifierProvider<EventProvider>(
+          create: (context) => EventProvider(),
+        ),
+        ChangeNotifierProvider<CalendarEventProvider>(
+          create: (_) => CalendarEventProvider(),
+        ),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -41,7 +49,7 @@ class MyApp extends StatelessWidget {
           initialRoute: '/home',
           routes: <String, WidgetBuilder>{
             '/home': (BuildContext context) => const HomePage(),
-            '/calendarevent': (BuildContext context) => const CalendarEvent(),
+            '/calendarevent': (BuildContext context) => const CalendarNames(),
             '/products': (BuildContext context) => const ProductList(),
           }),
     );
