@@ -25,8 +25,7 @@ class EventProvider with ChangeNotifier {
   }
 
   Future<dynamic> fetchEventList() async {
-    try {
-      var permissionsGranted = await _deviceCalendarPlugin!.hasPermissions();
+    /*var permissionsGranted = await _deviceCalendarPlugin!.hasPermissions();
       if (permissionsGranted.isSuccess &&
           (permissionsGranted.data == null ||
               permissionsGranted.data == false)) {
@@ -36,16 +35,32 @@ class EventProvider with ChangeNotifier {
             permissionsGranted.data == false) {
           return;
         }
+      }*/
+    try {
+      var permissionsGranted = await _deviceCalendarPlugin!.hasPermissions();
+      if (permissionsGranted.isSuccess && !permissionsGranted.data!) {
+        permissionsGranted = await _deviceCalendarPlugin!.requestPermissions();
+        if (permissionsGranted.isSuccess) {
+          final calendarsResult =
+              await _deviceCalendarPlugin!.retrieveCalendars();
+          _eventList = calendarsResult.data!;
+
+          setEventList(_eventList);
+        }
+        if (!permissionsGranted.isSuccess || permissionsGranted.data!) {
+          return;
+        }
+      } else if (permissionsGranted.isSuccess && permissionsGranted.data!) {
+        final calendarsResult =
+            await _deviceCalendarPlugin!.retrieveCalendars();
+        _eventList = calendarsResult.data!;
+
+        setEventList(_eventList);
       }
-
-      final calendarsResult = await _deviceCalendarPlugin!.retrieveCalendars();
-      _eventList = calendarsResult.data!;
-
-      setEventList(_eventList);
-
-      return _eventList;
-    } on PlatformException catch (e) {
-      print("platform exception $e");
+    } catch (e) {
+      print("exceptin $e");
     }
+
+    return _eventList;
   }
 }
