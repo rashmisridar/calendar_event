@@ -7,7 +7,7 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 import '../../utils/custom_style/progress_indicator.dart';
 import '../product/product_provider.dart';
-import 'calendar_event_provider.dart';
+import 'providers/calendar_event_provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -21,7 +21,6 @@ class CalendarEventPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final calendarEventList = Provider.of<CalendarEventProvider>(context);
 
-    print("calendar_event_page ${calendarPage!.id}");
     return Scaffold(
         appBar: AppBar(
           title: Text('${calendarPage!.name} events'),

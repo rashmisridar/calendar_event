@@ -8,7 +8,7 @@ import '../../utils/coonst_string.dart';
 import '../../utils/custom_style/custom_text_style.dart';
 import '../../utils/custom_style/progress_indicator.dart';
 import 'calendar_event_page.dart';
-import 'event_provider.dart';
+import 'providers/event_provider.dart';
 
 /*late DeviceCalendarPlugin _deviceCalendarPlugin;
 List<Calendar> _calendars = [];

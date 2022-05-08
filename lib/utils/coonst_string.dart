@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CoonstString {
   static String submit = 'Submit';
-  static String question1 = 'Question 1';
+  static String question1 = 'Calendar Event';
 
-  static String question2 = 'Question 2';
+  static String question2 = 'Product List';
 
   static var productList = "Product List";
 
@@ -13,5 +13,5 @@ class CoonstString {
 
   static String calendarEvents = "Calendar Events";
 
-  static var wentWrong = "Some thing went wrong";
+  static var wentWrong = "Some thing went wrong, please check your internet";
 }

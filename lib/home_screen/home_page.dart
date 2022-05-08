@@ -1,7 +1,6 @@
 import 'package:atem_interview/utils/coonst_string.dart';
 import 'package:atem_interview/utils/custom_style/custom_text_style.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/coonst_color.dart';
 
 class HomePage extends StatelessWidget {

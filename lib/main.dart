@@ -1,11 +1,11 @@
 import 'package:atem_interview/home_screen/calendarevent/calendar_names.dart';
-import 'package:atem_interview/home_screen/calendarevent/event_provider.dart';
+import 'package:atem_interview/home_screen/calendarevent/providers/event_provider.dart';
 import 'package:atem_interview/home_screen/home_page.dart';
 import 'package:atem_interview/home_screen/product/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'home_screen/calendarevent/calendar_event_provider.dart';
+import 'home_screen/calendarevent/providers/calendar_event_provider.dart';
 import 'home_screen/product/product_provider.dart';
 
 void main() {
@@ -22,12 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        // product list api call
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
+        // Fetch calendar types like local, email etc
         ChangeNotifierProvider<EventProvider>(
           create: (context) => EventProvider(),
         ),
+        // Retrieving the events based on the calendar id
         ChangeNotifierProvider<CalendarEventProvider>(
           create: (_) => CalendarEventProvider(),
         ),

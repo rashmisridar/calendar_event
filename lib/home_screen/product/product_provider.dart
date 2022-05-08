@@ -25,15 +25,11 @@ class ProductProvider with ChangeNotifier {
         await http.get(Uri.parse(CoonstUtils.PRODUCT_LIST_URL));
     if (response.statusCode == 200) {
       String responseData = "{\"data\":\"ok\",\"Product\":${response.body}}";
-      print("responseData $responseData");
       var jsonResponse =
           ProductModel.fromJson(json.decode(responseData)).product;
       setProdList(jsonResponse);
-      //print("fetchProductList ${getAllData()}");
       return jsonResponse;
     } else {
-      print("fetchProductList else ${getAllData()}");
-
       return List.empty(growable: false);
     }
   }
